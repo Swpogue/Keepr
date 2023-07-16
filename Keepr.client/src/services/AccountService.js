@@ -8,10 +8,17 @@ class AccountService {
     try {
       const res = await api.get('/account')
       AppState.account = new Account(res.data)
+
+      this.getMyKeeps()
     } catch (err) {
       logger.error('HAVE YOU STARTED YOUR SERVER YET???', err)
     }
   }
+
+async getMyKeeps(){
+  const res = await api.get(`account/keeps`)
+  AppState.myKeeps = res.data
+}
 }
 
 export const accountService = new AccountService()

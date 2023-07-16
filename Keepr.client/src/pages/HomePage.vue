@@ -1,19 +1,40 @@
 <template>
-  <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <div class="home-card p-5 bg-white rounded elevation-3">
-      <img src="https://bcw.blob.core.windows.net/public/img/8600856373152463" alt="CodeWorks Logo"
-        class="rounded-circle">
-      <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
-        Vue 3 Starter
-      </h1>
+  <keep-form></keep-form>
+  <section class="container-fluid">
+    <button class="btn btn-outline-dark w-15" @click="openKeepFormModal()">Create</button>
+
+    <div class="align-items-center justify-content-center col-md-3">
+      <div v-for="k in keep" :key="k.id">
+        <KeepCard :keep="k" />
+
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
+import { computed, onMounted } from "vue";
+// import { keepsService } from "../services/KeepsService.js"
+// import Pop from "../utils/Pop.js";
+import { AppState } from "../AppState.js";
+import { Modal } from "bootstrap";
+import KeepForm from "../components/KeepForm.vue";
+
 export default {
+  components: { KeepForm },
   setup() {
-    return {}
+   
+
+
+    return {
+      keep: computed(() => AppState.keeps),
+
+      openKeepFormModal(){
+        Modal.getOrCreateInstance('#createKeepModal').show()
+      }
+
+
+    }
   }
 }
 </script>
