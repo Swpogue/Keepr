@@ -13,7 +13,13 @@ class KeepsService{
     const res = await api.post(`api/keeps`, formData)
     AppState.keeps.unshift(new Keep(res.data))
   }
+  async deleteKeep(keepId){
+    const res = await api.delete(`api/keeps/${keepId}`)
+    const rIndex = AppState.keeps.findIndex(r=> r.id == keepId)
+    AppState.keeps.splice(rIndex, 1)
+    logger.log('DELETED KEEP', res.data)
 
+  }
 
 }
 
