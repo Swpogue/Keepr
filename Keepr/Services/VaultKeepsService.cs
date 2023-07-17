@@ -19,10 +19,26 @@ namespace Keepr.Services;
       return vaultKeep;
     }
 
-    internal void deleteVaultKeep(int vaultKeepId, string id)
-    {
-      throw new NotImplementedException();
-    }
+    internal void deleteVaultKeep(int vaultKeepId, string userId)
+  {
+    VaultKeep vaultKeep = _repo.getVaultKeepById(vaultKeepId);
+    if (vaultKeep.CreatorId != userId) throw new Exception("Not your Keep");
+    int rows = _repo.deleteVaultKeep(vaultKeepId);
+    if (rows > 1) new Exception("You deleted TOO hard!");
   }
+
+  internal VaultKeep getVaultKeepById(int vaultKeepId)
+  {
+    VaultKeep vaultKeep = _repo.getVaultKeepById(vaultKeepId);
+    return vaultKeep;
+  }
+
+  internal List<VaultKeepKeep> getVaultKeepsByVaultId(int vaultId)
+  {
+    List<VaultKeepKeep> vaultKeeps = _repo.getVaultKeepsByVaultId(vaultId);
+    if (vaultKeeps == null) throw new Exception("Not keeps here");
+    return vaultKeeps;
+  }
+}
 
 

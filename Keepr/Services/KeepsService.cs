@@ -25,6 +25,8 @@ public class KeepsService
   {
   Keep keep = _repo.getKeepById(keepId);
   if (keep == null) throw new Exception("No Keep Here");
+  // keep.Views++;
+  // _repo.updateKeep(keep);
   return keep;
   }
 
@@ -51,5 +53,11 @@ public class KeepsService
   internal List<Keep> getMyKeeps(string id)
   {
     return _repo.getMyKeeps(id);
+  }
+
+  internal List<Keep> getKeepsByProfileId(string profileId)
+  {
+    List<Keep> keeps = _repo.getKeepsByProfileId(profileId);
+    return keeps;
   }
 }

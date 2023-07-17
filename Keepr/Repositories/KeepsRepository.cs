@@ -100,5 +100,27 @@ internal Keep getKeepById(int keepId)
 
 
   }
-  
+
+  internal List<Keep> getKeepsByProfileId(string profileId)
+  {
+    string sql = @"
+    SELECT
+    keeps.*,
+    creator.*,
+    COUNT(vaultKeeps.id) AS kept
+    FROM keeps
+    LEFT JOIN vaultKeeps ON vaultKeeps.keepId = keeps.id
+    JOIN accounts creator ON keeps.creatorId = creator.id
+    WHERE keeps.creatorId = @profileId
+    GROUP BY(keeps.id);
+    ;";
+
+    List<Keep> keeps = _db.Query<Keep, Profile, Keep>(sql, (keep, creator)=>
+    {
+      keep.Creator = creator;
+      return keep;
+    }, new {profileId}).ToList();
+    return keeps;
+  }
+
 }

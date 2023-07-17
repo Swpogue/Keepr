@@ -6,12 +6,14 @@ namespace Keepr.Controllers;
 public class VaultsController : ControllerBase
 {
   private readonly VaultsService _vaultsService;
+  private readonly VaultKeepsService _vaultKeepsService;
   private readonly Auth0Provider _auth;
 
-  public VaultsController(VaultsService vaultsService, Auth0Provider auth)
+  public VaultsController(VaultsService vaultsService, Auth0Provider auth, VaultKeepsService vaultKeepsService)
   {
     _vaultsService = vaultsService;
     _auth = auth;
+    _vaultKeepsService = vaultKeepsService;
   }
 
   [HttpPost]
@@ -73,7 +75,7 @@ public class VaultsController : ControllerBase
     {
       updateData.Id = vaultId;
       Account userInfo = await _auth.GetUserInfoAsync<Account>(HttpContext);
-      Vault vault = _vaultsService.updateVault(updateData,userInfo.Id);
+      Vault vault = _vaultsService.updateVault(updateData, userInfo.Id);
       return Ok(vault);
     }
     catch (Exception e)
@@ -82,4 +84,19 @@ public class VaultsController : ControllerBase
     }
   }
 
+[HttpGet("{vaultId}/keeps")]
+public async Task<ActionResult<List<VaultKeepKeep>>> getVaultKeepsByVaultId(int vaultId)
+{
+  try
+  {
+    Account userInfo = await _auth.GetUserInfoAsync<Account>(HttpContext);
+    Vault vault = _vaultsService.getVaultById(vaultId, userInfo.Id);
+    List<VaultKeepKeep> vaultKeeps = _vaultKeepsService.getVaultKeepsByVaultId(vaultId);
+    return Ok(vaultKeeps);
+  }
+   catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+}
 }

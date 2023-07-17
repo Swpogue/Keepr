@@ -65,4 +65,35 @@ public class VaultsRepository
 
     _db.Execute(sql, updateData);
   }
+
+  internal List<Vault> getVaultByCreatorId(string id)
+  {
+    string sql = @"
+    SELECT 
+    vaults.*,
+    creator.*
+    FROM vaults
+    JOIN accounts creator ON vaults.creatorId = creator.id
+    WHERE vaults.creatorId = @id
+    ;";
+
+    List<Vault> vaults = _db.Query<Vault, Account, Vault>(sql, (vault, creator)=>
+    {
+      vault.Creator = creator;
+      return vault;
+    }, new {id}).ToList();
+    return vaults;
+  }
+
+  internal List<Vault> getVaultsByProfileId(string profileId)
+  {
+    string sql = @"
+    SELECT *
+    FROM vaults
+    WHERE vaults.creatorId = @profileId
+    ;";
+
+    List<Vault> vaults = _db.Query<Vault>(sql, new {profileId}).ToList();
+    return vaults;
+  }
 }

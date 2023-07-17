@@ -5,12 +5,14 @@ namespace Keepr.Controllers;
 public class VaultKeepsController : ControllerBase
 {
   private readonly VaultKeepsService _vaultKeepsService;
+  private readonly VaultsService _vaultsService;
   private readonly Auth0Provider _auth;
 
-  public VaultKeepsController(VaultKeepsService vaultKeepsService, Auth0Provider auth)
+  public VaultKeepsController(VaultKeepsService vaultKeepsService, Auth0Provider auth, VaultsService vaultsService)
   {
     _vaultKeepsService = vaultKeepsService;
     _auth = auth;
+    _vaultsService = vaultsService;
   }
 
   [HttpPost]
@@ -32,7 +34,6 @@ public class VaultKeepsController : ControllerBase
     }
   }
 
-
   [HttpDelete("{vaultKeepId}")]
   [Authorize]
 
@@ -42,11 +43,11 @@ public class VaultKeepsController : ControllerBase
     {
         Account userInfo = await _auth.GetUserInfoAsync<Account>(HttpContext);
         _vaultKeepsService.deleteVaultKeep(vaultKeepId, userInfo.Id);
-        return Ok("Keep Deleted from Vault");
+        return Ok("Keep Deleted from Vault WAHOO!");
     }
      catch (Exception e)
     {
-      return BadRequest(e.Message);
+      return BadRequest(e.Message); 
     }
   }
 
