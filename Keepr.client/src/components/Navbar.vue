@@ -1,12 +1,13 @@
 <template>
+  <keep-form></keep-form>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
         <img alt="logo" src="../assets/img/cw-logo.png" height="45" />
       </div>
     </router-link>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
+      aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
@@ -15,6 +16,7 @@
           <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
             About
           </router-link>
+          <button class="btn btn-outline-light w-15" @click="openKeepFormModal()">Create Keep</button>
         </li>
       </ul>
       <!-- LOGIN COMPONENT HERE -->
@@ -24,12 +26,22 @@
 </template>
 
 <script>
+import { computed } from "vue";
 import Login from './Login.vue';
+import { AppState } from "../AppState.js";
+import { Modal } from "bootstrap";
+import KeepForm from "../components/KeepForm.vue";
 export default {
+  components: { KeepForm, Login },
   setup() {
-    return {}
+    return {
+      keep: computed(() => AppState.keeps),
+
+      openKeepFormModal() {
+        Modal.getOrCreateInstance('#createKeepModal').show()
+      }
+    }
   },
-  components: { Login }
 }
 </script>
 

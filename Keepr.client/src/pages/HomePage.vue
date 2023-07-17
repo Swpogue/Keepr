@@ -1,7 +1,7 @@
 <template>
-  <keep-form></keep-form>
+  <!-- <keep-form></keep-form> -->
   <section class="container-fluid">
-    <button class="btn btn-outline-dark w-15" @click="openKeepFormModal()">Create</button>
+    
 
     <div class="align-items-center justify-content-center col-md-3">
       <div v-for="k in keep" :key="k.id">
@@ -21,7 +21,7 @@ import { Modal } from "bootstrap";
 import KeepForm from "../components/KeepForm.vue";
 
 export default {
-  components: { KeepForm },
+  // components: { KeepForm },
   setup() {
    
 
@@ -29,9 +29,9 @@ export default {
     return {
       keep: computed(() => AppState.keeps),
 
-      openKeepFormModal(){
-        Modal.getOrCreateInstance('#createKeepModal').show()
-      }
+      // openKeepFormModal(){
+      //   Modal.getOrCreateInstance('#createKeepModal').show()
+      // } 
 
 
     }
