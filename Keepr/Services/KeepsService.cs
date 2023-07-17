@@ -25,8 +25,7 @@ public class KeepsService
   {
   Keep keep = _repo.getKeepById(keepId);
   if (keep == null) throw new Exception("No Keep Here");
-  // keep.Views++;
-  // _repo.updateKeep(keep);
+  keep.Views++; _repo.updateKeep(keep);
   return keep;
   }
 

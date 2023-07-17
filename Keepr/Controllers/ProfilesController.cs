@@ -51,7 +51,7 @@ public class ProfilesController : ControllerBase
     try
     {
       Account userInfo = await _auth.GetUserInfoAsync<Account>(HttpContext);
-      List<Vault> vaults = _vaultsService.getVaultsByProfileId(profileId, userInfo.Id);
+      List<Vault> vaults = _vaultsService.getVaultsByProfileId(profileId, userInfo?.Id);
       return Ok(vaults);
     }
     catch (Exception e)

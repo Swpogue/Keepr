@@ -52,6 +52,7 @@ namespace Keepr.Services;
   internal List<Vault> getVaultsByProfileId(string profileId, string userId)
   {
     List<Vault> vaults = _repo.getVaultsByProfileId(profileId);
-    return vaults;
+    List<Vault> privateVaults = vaults.FindAll(v => v.IsPrivate == false || v.CreatorId == userId);
+    return privateVaults;
   }
 }

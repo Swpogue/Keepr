@@ -40,7 +40,7 @@ internal List<Keep> getAllKeeps()
     FROM keeps
     JOIN accounts creator ON keeps.creatorId = creator.id;
     ";
-    List<Keep> keeps = _db.Query<Keep, Account, Keep>(sql, (keep, creator) =>
+    List<Keep> keeps = _db.Query<Keep, Profile, Keep>(sql, (keep, creator) =>
     {
       keep.Creator = creator;
       return keep;
@@ -58,7 +58,7 @@ internal Keep getKeepById(int keepId)
     JOIN accounts creator ON keeps.creatorId = creator.id
     WHERE keeps.id = @keepId;
     ";
-    Keep keep = _db.Query<Keep, Account, Keep>(sql, (keep, creator) =>
+    Keep keep = _db.Query<Keep, Profile, Keep>(sql, (keep, creator) =>
     {
       keep.Creator = creator;
       return keep;
@@ -80,7 +80,8 @@ internal Keep getKeepById(int keepId)
     UPDATE keeps SET
     name = @name,
     description = @description,
-    img = @img
+    img = @img,
+    views = @views
     WHERE id = @id;";
     _db.Execute(sql, updateData);
   }

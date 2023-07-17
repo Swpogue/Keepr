@@ -4,18 +4,21 @@ namespace Keepr.Services;
     {
         private readonly VaultKeepsRepository _repo;
         private readonly VaultsService _vaultsService;
+        private readonly KeepsRepository _kRepo;
 
-    public VaultKeepsService(VaultKeepsRepository repo, VaultsService vaultsService)
-    {
-      _repo = repo;
-      _vaultsService = vaultsService;
-    }
+  public VaultKeepsService(VaultKeepsRepository repo, VaultsService vaultsService, KeepsRepository kRepo)
+  {
+    _repo = repo;
+    _vaultsService = vaultsService;
+    _kRepo = kRepo;
+  }
 
-    internal VaultKeep createVaultKeep(VaultKeep vaultKeepData, string userId)
+  internal VaultKeep createVaultKeep(VaultKeep vaultKeepData, string userId)
     {
       Vault vault = _vaultsService.getVaultById(vaultKeepData.VaultId, userId);
       if (vault.CreatorId != userId) throw new Exception("Something Went Wrong");
       VaultKeep vaultKeep = _repo.createVaultKeep(vaultKeepData);
+      // _kRepo.getAllKeeps();
       return vaultKeep;
     }
 

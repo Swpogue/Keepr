@@ -36,7 +36,7 @@ public class VaultsController : ControllerBase
   }
 
   [HttpGet("{vaultId}")]
-  [Authorize]
+
   public async Task<ActionResult<Keep>> getVaultById(int vaultId)
   {
     try
@@ -90,7 +90,7 @@ public async Task<ActionResult<List<VaultKeepKeep>>> getVaultKeepsByVaultId(int 
   try
   {
     Account userInfo = await _auth.GetUserInfoAsync<Account>(HttpContext);
-    Vault vault = _vaultsService.getVaultById(vaultId, userInfo.Id);
+    Vault vault = _vaultsService.getVaultById(vaultId, userInfo?.Id);
     List<VaultKeepKeep> vaultKeeps = _vaultKeepsService.getVaultKeepsByVaultId(vaultId);
     return Ok(vaultKeeps);
   }
