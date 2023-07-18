@@ -6,7 +6,7 @@
       <div class="d-flex flex-column align-items-center">
         <button class="btn btn-outline-light w-15">HOME</button>
       </div>
-    </router-link>
+    </router-link> 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
       aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
