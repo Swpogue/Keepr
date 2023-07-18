@@ -1,16 +1,16 @@
 <template>
-  <div class="modal" tabindex="-1" id="createKeepModal">
+  <div class="modal" tabindex="-1" id="createVaultModal">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Create Keep</h5>
+          <h5 class="modal-title">Create Vault</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form @submit.prevent="createKeep()">
+        <form @submit.prevent="createVault()">
           <div class="row modal-body">
             <div class="col-12">
-              <label for="Keep Name">Keep Name</label>
-              <input type="text" id="keepName" name="keepName" class="form-control" required minlength="5" maxlength="25" aria-label="Keep Name"
+              <label for="Vault Name">Vault Name</label>
+              <input type="text" id="VaultName" name="VaultName" class="form-control" required minlength="5" maxlength="25" aria-label="Vault Name"
                 v-model="editable.name">
             </div>
             <div class="col-12">
@@ -37,29 +37,29 @@
 
 <script>
 import { ref } from "vue"
-import { keepsService } from "../services/KeepsService.js"
-import Pop from "../utils/Pop.js"
+import { vaultsService } from "../services/VaultsService.js"
 import { logger } from "../utils/Logger.js"
 import { Modal } from "bootstrap"
+import Pop from "../utils/Pop.js"
 export default {
   setup() {
-
+    
     const editable = ref({})
     return {
       editable,
 
-
-      async createKeep() {
+      async createVault() {
         try {
           const formData = editable.value
-          await keepsService.createKeep(formData)
+          await vaultsService.createVault(formData)
           editable.value = {}
-          Modal.getOrCreateInstance('#createKeepModal').hide()
-          logger.log('CREATED KEEP')
+          Modal.getOrCreateInstance('#createVaultModal').hide()
+          logger.log('CREATED Vault')
         } catch (error) {
           Pop.error(error)
         }
       },
+
 
 
     }

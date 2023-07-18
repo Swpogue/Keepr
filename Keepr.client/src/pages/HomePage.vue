@@ -2,7 +2,7 @@
   <!-- <keep-form></keep-form> -->
   
     
-      <section class="container-fluid" >
+      <section class="container-fluid">
         <div class="masonry-with-flex col-2" v-for="k in keep" :key="k.id">
           <KeepCard :keep="k" />
         </div>
@@ -12,26 +12,14 @@
 </template>
 
 <script>
-import { computed, onMounted } from "vue";
-// import { keepsService } from "../services/KeepsService.js"
-// import Pop from "../utils/Pop.js";
+import { computed } from "vue";
 import { AppState } from "../AppState.js";
-import { Modal } from "bootstrap";
-import KeepForm from "../components/KeepForm.vue";
 
 export default {
-  // components: { KeepForm },
   setup() {
-
-
 
     return {
       keep: computed(() => AppState.keeps),
-
-      // openKeepFormModal(){
-      //   Modal.getOrCreateInstance('#createKeepModal').show()
-      // } 
-
 
     }
   }

@@ -18,7 +18,6 @@ namespace Keepr.Services;
       Vault vault = _vaultsService.getVaultById(vaultKeepData.VaultId, userId);
       if (vault.CreatorId != userId) throw new Exception("Something Went Wrong");
       VaultKeep vaultKeep = _repo.createVaultKeep(vaultKeepData);
-      // _kRepo.getAllKeeps();
       return vaultKeep;
     }
 
@@ -39,7 +38,7 @@ namespace Keepr.Services;
   internal List<VaultKeepKeep> getVaultKeepsByVaultId(int vaultId)
   {
     List<VaultKeepKeep> vaultKeeps = _repo.getVaultKeepsByVaultId(vaultId);
-    if (vaultKeeps == null) throw new Exception("Not keeps here");
+    if (vaultKeeps == null) throw new Exception("No keeps here");
     return vaultKeeps;
   }
 }

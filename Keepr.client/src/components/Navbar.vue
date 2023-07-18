@@ -1,9 +1,10 @@
 <template>
   <keep-form></keep-form>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <vault-form></vault-form>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
-        <img alt="logo" src="../assets/img/cw-logo.png" height="45" />
+        <button class="btn btn-outline-light w-15">HOME</button>
       </div>
     </router-link>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
@@ -13,10 +14,8 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
         <li>
-          <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
-            About
-          </router-link>
           <button class="btn btn-outline-light w-15" @click="openKeepFormModal()">Create Keep</button>
+          <button class="btn btn-outline-light w-15 mx-3" @click="openVaultFormModal()">Create Vault</button>
         </li>
       </ul>
       <!-- LOGIN COMPONENT HERE -->
@@ -31,14 +30,18 @@ import Login from './Login.vue';
 import { AppState } from "../AppState.js";
 import { Modal } from "bootstrap";
 import KeepForm from "../components/KeepForm.vue";
+import VaultForm from "../components/VaultForm.vue";
 export default {
-  components: { KeepForm, Login },
+  components: { KeepForm, Login, VaultForm },
   setup() {
     return {
       keep: computed(() => AppState.keeps),
 
       openKeepFormModal() {
         Modal.getOrCreateInstance('#createKeepModal').show()
+      },
+      openVaultFormModal() {
+        Modal.getOrCreateInstance('#createVaultModal').show()
       }
     }
   },

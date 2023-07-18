@@ -50,6 +50,7 @@ public class VaultsController : ControllerBase
       return BadRequest(e.Message);
     }
   }
+
   [HttpDelete("{vaultId}")]
   [Authorize]
   public async Task<ActionResult<string>> deleteVault(int vaultId)
@@ -73,8 +74,8 @@ public class VaultsController : ControllerBase
   {
     try
     {
-      updateData.Id = vaultId;
       Account userInfo = await _auth.GetUserInfoAsync<Account>(HttpContext);
+      updateData.Id = vaultId;
       Vault vault = _vaultsService.updateVault(updateData, userInfo.Id);
       return Ok(vault);
     }
