@@ -11,3 +11,7 @@ public class Keep
   public int Kept { get; set; }
   public Profile Creator { get; set; }
 }
+public class VaultKeepKeep : Keep
+{
+  public int vaultKeepId { get; set; }
+}

@@ -33,6 +33,7 @@ public class VaultsRepository
     From vaults
     JOIN accounts creator ON creator.id = vaults.creatorId
     WHERE vaults.id = @vaultId
+
     ;";
 
     Vault vault = _db.Query<Vault, Profile, Vault>(sql, (vault, creator) =>

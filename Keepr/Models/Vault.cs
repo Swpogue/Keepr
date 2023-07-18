@@ -9,3 +9,4 @@ public class Vault{
   public bool IsPrivate { get; set;}
   public Profile Creator { get; set;}
 }
+

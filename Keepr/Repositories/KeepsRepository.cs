@@ -108,10 +108,10 @@ internal Keep getKeepById(int keepId)
     SELECT
     keeps.*,
     creator.*,
-    COUNT(vaultKeeps.id) AS kept
+    COUNT(vaultKeeps.id) AS Kept
     FROM keeps
-    LEFT JOIN vaultKeeps ON vaultKeeps.keepId = keeps.id
     JOIN accounts creator ON keeps.creatorId = creator.id
+    LEFT JOIN vaultKeeps ON vaultKeeps.keepId = keeps.id
     WHERE keeps.creatorId = @profileId
     GROUP BY(keeps.id);
     ;";

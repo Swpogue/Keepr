@@ -2,10 +2,13 @@
   <section class="rounded elevation-5">
     <div class="text-center p-2 rounded-bottom text-black fw-bold">
       <img class="rounded-top" :src="keep.img" :alt="keep.name">
+      
       <p class="m-0">Keep: {{ keep.name }}</p>
+      <router-link :to="{name: 'Profile'}">
       <p>Created by: {{ keep.creator.name }}</p>
       <!-- TODO put Creator img here  -->
       <p><img :src="keep.creator.picture" alt="" class="creatorImg rounded"></p>
+    </router-link>
     </div>
     <div>
 

@@ -6,7 +6,7 @@
   </div>
   <section class="container-fluid">
     <div class="masonry-with-flex col-2" v-for="v in vault" :key="v.id">
-      <VaultCard :account="v.creatorId" />
+      <VaultCard :vault="v" />
     </div>
   </section>
   <!-- <div class="my-keeps">
