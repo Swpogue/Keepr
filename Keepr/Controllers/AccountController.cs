@@ -45,4 +45,21 @@ public class AccountController : ControllerBase
       return BadRequest(e.Message);
     }
   }
+
+  [HttpPut]
+  [Authorize]
+  public async Task<ActionResult<Account>> Edit(Account account)
+  {
+    try
+    {
+      Account userInfo = await _auth0Provider.GetUserInfoAsync<Account>(HttpContext);
+      if (userInfo.Id != account.Id) throw new Exception("NOT YOUR ACCOUNT!");
+      Account newAccount = _accountService.Edit(account, account.Email);
+      return Ok(newAccount);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
 }

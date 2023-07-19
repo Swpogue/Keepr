@@ -1,10 +1,10 @@
 <template>
   <section class="rounded elevation-5">
     <div class="text-center p-2 rounded-bottom text-black fw-bold">
-      <img class="rounded-top" :src="keep.img" :alt="keep.name">
+      <img class="rounded-top" :src="keep?.img" :alt="keep.name">
       
       <p class="m-0">Keep: {{ keep.name }}</p>
-      <router-link :to="{name: 'Profile'}">
+      <router-link :to="{name: 'Profile', params: {id: keep?.creatorId}}">
       <p>Created by: {{ keep.creator.name }}</p>
       <!-- TODO put Creator img here  -->
       <p><img :src="keep.creator.picture" alt="" class="creatorImg rounded"></p>
@@ -24,7 +24,8 @@ import { keepsService } from "../services/KeepsService.js";
 import Pop from "../utils/Pop.js";
 export default {
   props: {
-    keep: { type: Keep, required: true }
+    keep: { type: Keep, required: true },
+    
   },
   setup(props) {
 

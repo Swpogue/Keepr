@@ -15,6 +15,10 @@ class AccountService {
     }
   }
 
+  async submitEdit(formData){
+    const res = await api.put('/account', {...formData})
+    AppState.account = new Account(res.data)
+  }
   async getMyVaults(){
     const res = await api.get(`/account/vaults`)
     AppState.myVaults = res.data.map(v => new Vault(v))

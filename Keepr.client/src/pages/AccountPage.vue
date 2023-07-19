@@ -1,13 +1,21 @@
 <template>
+   <div class="row d-flex justify-content-center m-5">
+    <ProfileForm />
+  </div>
   <div class="about text-center">
     <h1>Welcome {{ account.name }}</h1>
     <img class="rounded" :src="account.picture" alt="" />
-    <p>{{ account.email }}</p>
+    <img class="rounded" :src="account.coverImg" alt="" />
   </div>
   <section class="container-fluid">
     <div class="masonry-with-flex col-2" v-for="v in vault" :key="v.id">
       <VaultCard :vault="v" />
     </div>
+    <section class="container-fluid">
+        <div class="masonry-with-flex col-2" v-for="k in keep" :key="k.id">
+          <KeepCard :keep="k" />
+        </div>
+      </section>
   </section>
   <!-- <div class="my-keeps">
     <MyKeepsCard v-for="k in keeps" :key="k=id" :keep="k" />
@@ -39,6 +47,7 @@ export default {
       account: computed(() => AppState.account),
       // keeps: computed(()=> AppState.myKeeps),
       vault: computed(() => AppState.myVaults),
+      keep: computed(() => AppState.keeps),
     }
   }
 }

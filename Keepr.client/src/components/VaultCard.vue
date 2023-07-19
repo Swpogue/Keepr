@@ -1,12 +1,11 @@
 <template>
     <section class="rounded elevation-5">
+      <router-link :to="{name: 'Vault', params: {id: vault.id }}">
     <div class="text-center p-2 rounded-bottom text-black fw-bold">
-      <img class="rounded-top" :src="vault.img" :alt="vault.name">
-      <p class="m-0">Vault: {{ vault.name }}</p>
-      <p>Created by: {{ vault.creator.name }}</p>
-      <!-- TODO put Creator img here  -->
-      <p><img :src="vault.creator.picture" alt="" class="creatorImg rounded"></p>
+      <img class="rounded-top" :src="vault?.img" :alt="vault?.name">
+      <p class="">{{ vault?.name }}</p>
     </div>
+  </router-link>
     <div>
 
       <button @click="deleteVault()">delete</button>
@@ -30,5 +29,10 @@ export default {
 
 
 <style lang="scss" scoped>
-
+img {
+  height: 350px;
+  width: 100%;
+  // aspect-ratio: 1/1;
+  object-fit: fit;
+}
 </style>

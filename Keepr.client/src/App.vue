@@ -31,7 +31,8 @@ export default {
 
 
     return {
-      appState: computed(() => AppState)
+      appState: computed(() => AppState),
+      profile: computed(()=> AppState.profile)
     }
   },
   components: { Navbar }
