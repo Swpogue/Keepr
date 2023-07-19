@@ -10,7 +10,7 @@
       <p><img :src="keep.creator.picture" alt="" class="creatorImg rounded"></p>
     </router-link>
     </div>
-    <div>
+    <div> 
 
       <button @click="deleteKeep()">delete</button>
     </div>
