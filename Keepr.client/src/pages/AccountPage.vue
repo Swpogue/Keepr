@@ -13,13 +13,10 @@
     </div>
     <section class="container-fluid">
         <div class="masonry-with-flex col-2" v-for="k in keep" :key="k.id">
-          <KeepCard :keep="k" />
+          <MyKeepsCard :profileKeep="k" /> 
         </div>
       </section>
   </section>
-  <!-- <div class="my-keeps">
-    <MyKeepsCard v-for="k in keeps" :key="k=id" :keep="k" />
-  </div> -->
 </template>
 
 <script>
@@ -28,13 +25,16 @@ import { AppState } from '../AppState';
 import Pop from "../utils/Pop.js";
 import { accountService } from "../services/AccountService.js";
 import { logger } from "../utils/Logger.js";
+import { profilesService } from "../services/ProfilesService.js";
 export default {
 
 
   
   setup() {
-    onMounted(()=> {getMyVaults(); })
-
+    onMounted(()=> {
+      getMyVaults(); 
+      getKeepsByAccountId();
+    })
     async function getMyVaults(){
       try {
         logger.log("ACCOUNT PAGE VAULTS?")
@@ -43,11 +43,20 @@ export default {
         Pop.error(error)
       }
     }
+    async function getKeepsByAccountId() {
+            try {
+              const id = AppState.account.id
+                await profilesService.getKeepsByAccountId(id);
+                logger.log("ACCOUNT KEEPS BY ID?");
+            }
+            catch (error) {
+                Pop.error(error);
+            }
+        }
     return {
       account: computed(() => AppState.account),
-      // keeps: computed(()=> AppState.myKeeps),
       vault: computed(() => AppState.myVaults),
-      keep: computed(() => AppState.keeps),
+      keep: computed(() => AppState.accountKeeps),
     }
   }
 }

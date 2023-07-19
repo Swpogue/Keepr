@@ -9,7 +9,7 @@
   </section>
   <section class="container-fluid">
         <div class="masonry-with-flex col-2" v-for="k in keep" :key="k.id">
-          <KeepCard :keep="k" />
+          <MyKeepsCard :profileKeep="k" /> 
         </div>
       </section>
 </template>
@@ -22,40 +22,47 @@ import { profilesService } from "../services/ProfilesService.js";
 import Pop from "../utils/Pop.js";
 import { useRoute } from "vue-router";
 export default {
-  setup() {
-    onMounted(() => {
-      getProfileVaults();
-      getProfile()
-    });
-    const route = useRoute();
-
-
-    async function getProfile() {
-      try {
-        await profilesService.getProfileById(route.params.id);
-        logger.log("GETTING PROFILE")
-      }
-      catch (error) {
-        Pop.error(error);
-      }
-    }
-
-    async function getProfileVaults(){
-      try {
-        await profilesService.getProfileVaults(route.params.id);
-        logger.log("PROFILE PAGE VAULTS?")
-      } catch (error) {
-        Pop.error(error)
-      }
-    }
-
-
-    return {
-      // vault: computed(() => AppState.vaults),
-      profile: computed(() => AppState.activeProfile),
-      vault: computed(() => AppState.profileVaults),
-      keep: computed(() => AppState.keeps),
-    }
-  }
+    setup() {
+        onMounted(() => {
+            getProfileVaults();
+            getProfile();
+            getKeepsByProfileId();
+        });
+        const route = useRoute();
+        async function getProfile() {
+            try {
+                await profilesService.getProfileById(route.params.id);
+                logger.log("GETTING PROFILE");
+            }
+            catch (error) {
+                Pop.error(error);
+            }
+        }
+        async function getProfileVaults() {
+            try {
+                await profilesService.getProfileVaults(route.params.id);
+                logger.log("PROFILE PAGE VAULTS?");
+            }
+            catch (error) {
+                Pop.error(error);
+            }
+        }
+        async function getKeepsByProfileId() {
+            try {
+                await profilesService.getKeepsByProfileId(route.params.id);
+                logger.log("PROFILE PAGE VAULTS?");
+            }
+            catch (error) {
+                Pop.error(error);
+            }
+        }
+        return {
+            // vault: computed(() => AppState.vaults),
+            profile: computed(() => AppState.activeProfile),
+            vault: computed(() => AppState.profileVaults),
+            keep: computed(() => AppState.profileKeeps),
+        };
+    },
+    
 }
 </script>

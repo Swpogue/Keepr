@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js"
+import { Keep } from "../models/Keep.js"
 import { Profile } from "../models/Profile.js"
 import { Vault } from "../models/Vault.js"
 import { logger } from "../utils/Logger.js"
@@ -18,6 +19,18 @@ class ProfilesService {
     AppState.profileVaults = res.data.map(v => new Vault(v))
     logger.log("PROFILE VAULTS GOT!", res.data)
   }
+  async getKeepsByProfileId(id){
+    const res = await api.get(`api/profiles/${id}/keeps`)
+    AppState.profileKeeps =res.data.map(k=> new Keep(k))
+    logger.log("PROFILE KEEPS GOT!", res.data)
+
+}
+  async getKeepsByAccountId(id){
+    const res = await api.get(`api/profiles/${id}/keeps`)
+    AppState.accountKeeps =res.data.map(k=> new Keep(k))
+    logger.log("ACCOUNT KEEPS GOT!", res.data)
+
+}
 
 
 }
