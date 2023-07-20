@@ -18,6 +18,8 @@ namespace Keepr.Services;
       Vault vault = _vaultsService.getVaultById(vaultKeepData.VaultId, userId);
       if (vault.CreatorId != userId) throw new Exception("Something Went Wrong");
       VaultKeep vaultKeep = _repo.createVaultKeep(vaultKeepData);
+      Keep keep = _kRepo.getKeepById(vaultKeep.KeepId);
+      keep.Kept++; _kRepo.updateKeep(keep);
       return vaultKeep;
     }
 

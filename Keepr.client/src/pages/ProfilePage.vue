@@ -1,5 +1,5 @@
 <template>
-    <section class="container-fluid ">
+    <section class="container-fluid body ">
         <div class="row profileName">
             <div class="col-4 p-3 text-center">
                 <img class="rounded profileImg" :src="profile?.coverImg" alt="">
@@ -9,19 +9,19 @@
                 <img class="img-fluid rounded" :src="profile?.picture" alt="">
             </div>
         </div>
-    </section>
+    <!-- </section> -->
 
-    <section class="container-fluid profile-page mt-2">
+    <!-- <section class="container-fluid profile-page mt-2"> -->
         <div class="row vaultRow">
             <div class=" col-2" v-for="v in vault" :key="v.id">
                 <VaultCard :vault="v" />
             </div>
         </div>
-    </section>
+    <!-- </section> -->
 
-    <section class="container-fluid mt-5">
-        <div class="row  mt-2">
-            <div class="masonry-with-flex col-12">
+    <!-- <section class="container-fluid mt-5"> -->
+        <div class="mt-2">
+            <div class="masonry-with-flex">
                 <div class="keepCards elevation-5" v-for="k in keep" :key="k.id">
                     <MyKeepsCard :profileKeep="k" />
                 </div>
@@ -89,6 +89,10 @@ export default {
     flex-wrap: wrap;
 }
 
+.body {
+  margin: 0;
+  padding: 1rem;
+}
 .profileImg{
     width: 100%;
 }
@@ -103,7 +107,7 @@ export default {
     flex-direction: column;
     flex-wrap: wrap;
     // min-height: 400px;
-    max-height: 800px;
+    max-height: 1300px;
 
     .keepCards {
         width: 150px;

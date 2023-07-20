@@ -81,6 +81,7 @@ internal Keep getKeepById(int keepId)
     name = @name,
     description = @description,
     img = @img,
+    kept = @kept,
     views = @views
     WHERE id = @id;";
     _db.Execute(sql, updateData);

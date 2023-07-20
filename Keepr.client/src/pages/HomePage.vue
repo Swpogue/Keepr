@@ -1,6 +1,6 @@
 <template>
-  <section class="container-fluid">
-    <div class="row overflow-hidden mt-2">
+  <section class="container-fluid body">
+    <div class="overflow-hidden mt-2">
       <div class="masonry-with-flex">
         <div class="keepCards" v-for="k in keep" :key="k.id">
           <KeepCard :keep="k" />
@@ -26,20 +26,22 @@ export default {
 </script>
 
 <style scoped lang="scss">
-// section {
-//   margin: 0;
-//   padding: 1rem;
-// }
+.body {
+  margin: 0;
+  padding: 1rem;
+  width: 100%;
+}
 
 .masonry-with-flex {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   // min-height: 400px;
-  max-height: 1300px;
+  max-height: 1000px;
+  width: 100%;
 
   .keepCards {
-    width: 150px;
+    width: 250px;
     background: #EC985A;
     color: white;
     margin: 0 1rem 1rem 0;

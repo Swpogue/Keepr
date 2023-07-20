@@ -22,6 +22,7 @@ CREATE TABLE
         updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Last Update',
         FOREIGN KEY (creatorId) REFERENCES accounts(id) ON DELETE CASCADE
     ) default charset utf8 COMMENT '';
+    ALTER TABLE keeps ADD COLUMN kept int DEFAULT "0";
 
 CREATE TABLE
     IF NOT EXISTS vaults(
@@ -49,3 +50,10 @@ CREATE TABLE
         updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Last Update',
         UNIQUE(creatorId, vaultId, keepId)
     ) default charset utf8 COMMENT '';
+
+    SELECT
+    keeps.*,
+    COUNT(vaultKeeps.id) AS kept
+    FROM keeps
+    LEFT JOIN vaultKeeps ON vaultKeeps.keepId = keepId
+    GROUP BY (keeps.id);

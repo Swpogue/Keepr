@@ -9,6 +9,11 @@
     <div v-if="account?.id == vault.creatorId">
       <button @click="deleteVault()">delete</button>
     </div>
+    <div v-if="vault.isPrivate == true">
+      <i class="mdi mdi-lock ps-2"></i>
+    </div>
+
+
   </section>
 </template>
 
