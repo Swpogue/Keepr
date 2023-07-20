@@ -23,8 +23,13 @@ class VaultsService{
     AppState.vaultKeeps = res.data.map(v=> new Keep(v))
     logger.log("VAULT KEEPS!!", res.data )
   }
+  async deleteVault(vaultId){
+    const res = await api.delete(`api/vaults/${vaultId}`)
+    const vIndex = AppState.vaults.findIndex(v=> v.id == vaultId)
+    AppState.vaults.splice(vIndex, 1)
+    logger.log('DELETED VAULT', res.data)
 
-
+}
 }
 
 export const vaultsService = new VaultsService()

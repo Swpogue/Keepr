@@ -1,7 +1,7 @@
 <template>
        <section class="container-fluid">
-        <div class="masonry-with-flex col-2" v-for="k in keep" :key="k.id">
-          <KeepCard :keep="k" />
+        <div class="masonry-with-flex row" v-for="k in keep" :key="k.id">
+          <VaultKeepCard :keep="k" />
         </div>
       </section>
 </template>

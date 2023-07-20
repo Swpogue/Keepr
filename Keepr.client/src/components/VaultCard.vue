@@ -16,13 +16,27 @@
 
 <script>
 import { Vault } from "../models/Vault.js"
+import { vaultsService } from "../services/VaultsService.js";
+import Pop from "../utils/Pop.js";
 export default {
   props: {
     vault: { type: Vault, required: true}
   },
 
-  setup(){
-    return {}
+  setup(props){
+    return {
+      async deleteVault(){
+        try {
+          if (await Pop.confirm("You sure?")){
+            const vaultId = props.vault.id;
+            await vaultsService.deleteVault(vaultId);
+            // logger.log(recipeId)
+          }
+        } catch (error) {
+          Pop.error(error)
+        }
+      },
+    }
   }
 }
 </script>
