@@ -1,14 +1,13 @@
 <template>
-  <!-- <keep-form></keep-form> -->
-  
-    
-      <section class="container-fluid">
-        <div class="masonry-with-flex col-2" v-for="k in keep" :key="k.id">
+  <section class="container-fluid">
+    <div class="row overflow-hidden mt-2">
+      <div class="masonry-with-flex">
+        <div class="keepCards" v-for="k in keep" :key="k.id">
           <KeepCard :keep="k" />
         </div>
-      </section>
-    
-  
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -27,16 +26,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
-section {
-  margin: 0;
-  padding: 1rem;
-}
+// section {
+//   margin: 0;
+//   padding: 1rem;
+// }
+
 .masonry-with-flex {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  max-height: 1000px;
-  div {
+  // min-height: 400px;
+  max-height: 1300px;
+
+  .keepCards {
     width: 150px;
     background: #EC985A;
     color: white;
@@ -44,34 +46,17 @@ section {
     text-align: center;
     font-family: system-ui;
     font-weight: 900;
-    font-size: 2rem;
-  } 
-  @for $i from 1 through 36 { 
-    div:nth-child(#{$i}) {
-      $h: (random(400) + 100) + px;
-      height: $h;
-      line-height: $h;
-    }
+    font-size: 1rem;
+    position: relative;
   }
+
+  // @for $i from 1 through 36 {
+  //   div:nth-child(#{$i}) {
+  //     $h: (random(400) + 100)+px;
+  //     height: $h;
+  //     line-height: $h;
+  //   }
+  // }
 }
 
-
-.home {
-  display: grid;
-  height: 80vh;
-  place-content: center;
-  text-align: center;
-  user-select: none;
-
-  .home-card {
-    width: 50vw;
-
-    >img {
-      height: 200px;
-      max-width: 200px;
-      width: 100%;
-      object-fit: contain;
-      object-position: center;
-    }
-  }
-}</style>
+</style>

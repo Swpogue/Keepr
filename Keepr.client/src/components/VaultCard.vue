@@ -6,8 +6,7 @@
       <p class="">{{ vault?.name }}</p>
     </div>
   </router-link>
-    <div>
-
+    <div v-if="account?.id == vault.creatorId">
       <button @click="deleteVault()">delete</button>
     </div>
   </section>
@@ -15,6 +14,8 @@
 
 
 <script>
+import { computed } from "vue";
+import { AppState } from "../AppState.js";
 import { Vault } from "../models/Vault.js"
 import { vaultsService } from "../services/VaultsService.js";
 import Pop from "../utils/Pop.js";
@@ -25,6 +26,7 @@ export default {
 
   setup(props){
     return {
+      account: computed(() => AppState.account),
       async deleteVault(){
         try {
           if (await Pop.confirm("You sure?")){

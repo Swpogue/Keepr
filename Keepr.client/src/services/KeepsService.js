@@ -22,8 +22,9 @@ class KeepsService{
   }
 
   async getKeepById(keepId){
-    // const res = await api.get(`api/keeps/${keepId}`)
-    AppState.activeKeep = AppState.keeps.find(k=> k.id == keepId)
+    AppState.activeKeep = []
+    const res = await api.get(`api/keeps/${keepId}`)
+    AppState.activeKeep = res.data
     logger.log("Active KEEP!", AppState.activeKeep)
   }
 
