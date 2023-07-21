@@ -64,7 +64,7 @@ export default {
   // height: 350px;
   width: 100%;
   object-fit: cover;
-  // aspect-ratio: 1/1;
+  // aspect-ratio: 1/1; 
   cursor: pointer;
 }
 

@@ -14,14 +14,14 @@
 
     <!-- <section class="container-fluid profile-page mt-2"> -->
         <div class="row vaultRow">
-            <div class=" col-2" v-for="v in vault" :key="v.id">
+            <div class=" col-2 mt-3" v-for="v in vault" :key="v.id">
                 <VaultCard :vault="v" />
             </div>
         </div>
     <!-- </section> -->
 
     <!-- <section class="container-fluid mt-5"> -->
-        <div class="mt-2">
+        <div class="mt-5">
             <div class="masonry-with-flex">
                 <div class="keepCards elevation-5" v-for="k in keep" :key="k.id">
                     <MyKeepsCard :profileKeep="k" />
@@ -104,22 +104,25 @@ export default {
 }
 
 .masonry-with-flex {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    // display: flex;
+    // flex-direction: column;
+    // flex-wrap: wrap;
     // min-height: 400px;
-    max-height: 1300px;
+    // max-height: 1300px;
+    columns: 6 200px;
+  column-gap: 1rem;
 
     .keepCards {
-        width: 150px;
+        width: 200px;
         background: #EC985A;
         color: white;
         margin: 0 1em 1em 0;
         text-align: center;
-        // font-family: system-ui;
-        // font-weight: 900;
+        font-family: system-ui;
+        font-weight: 900;
         font-size: 1rem;
         position: relative;
+        overflow: hidden;
     }
 //       @for $i from 1 through 40 {
 //     div:nth-child(#{$i}) {

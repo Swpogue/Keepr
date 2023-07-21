@@ -35,21 +35,21 @@ export default {
 
 
   setup() {
-    onMounted(() => {
+    // onMounted(() => {
       
-      getKeepsByAccountId();
-    })
+    //   getKeepsByAccountId();
+    // })
 
-    async function getKeepsByAccountId() {
-      try {
-        const id = AppState.account.id
-        await profilesService.getKeepsByAccountId(id);
-        logger.log("ACCOUNT KEEPS BY ID?");
-      }
-      catch (error) {
-        Pop.error(error);
-      }
-    }
+    // async function getKeepsByAccountId() {
+    //   try {
+    //     const id = AppState.account.id
+    //     await profilesService.getKeepsByAccountId(id);
+    //     logger.log("ACCOUNT KEEPS BY ID?");
+    //   }
+    //   catch (error) {
+    //     Pop.error(error);
+    //   }
+    // }
     return {
       account: computed(() => AppState.account),
       vault: computed(() => AppState.myVaults),
@@ -70,12 +70,14 @@ img {
 }
 
 .masonry-with-flex {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-direction: column;
+  // flex-wrap: wrap;
   // min-height: 400px;
-  max-height: 1300px;
+  // max-height: 1300px;
   // width: 50vw;
+  columns: 6 200px;
+  column-gap: 1rem;
 
   .keepCards {
     width: 200px;

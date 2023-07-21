@@ -25,7 +25,9 @@ class ProfilesService {
     logger.log("PROFILE KEEPS GOT!", res.data)
 
 }
-  async getKeepsByAccountId(id){
+  async getKeepsByAccountId(){
+    const id = AppState.account.id
+    logger.log(id)
     const res = await api.get(`api/profiles/${id}/keeps`)
     AppState.accountKeeps =res.data.map(k=> new Keep(k))
     logger.log("ACCOUNT KEEPS GOT!", res.data)

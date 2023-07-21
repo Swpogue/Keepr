@@ -8,30 +8,42 @@
         </div>
         <form @submit.prevent="createVault()">
           <div class="row modal-body">
-            <div class="col-12">
-              <label for="Vault Name">Vault Name</label>
-              <input type="text" id="VaultName" name="VaultName" class="form-control" required minlength="5" maxlength="25" aria-label="Vault Name"
+            <section class="col-12">
+              <div class="">
+                <label for="Vault Name">Vault Name</label>
+                <input type="text" id="VaultName" name="VaultName" class="form-control" required minlength="5" maxlength="25" aria-label="Vault Name"
                 v-model="editable.name">
-            </div>
-            <div class="col-12">
-              <label for="imgUrl" class="mt-2">Image URL</label>
-              <input type="url" id="imgUrl" name="imgUrl" class="form-control" required minlength="5" maxlength="500" aria-label="Image U R L"
+              </div>
+              <div class="">
+                <label for="imgUrl" class="mt-2">Image URL</label>
+                <input type="url" id="imgUrl" name="imgUrl" class="form-control" required minlength="5" maxlength="500" aria-label="Image U R L"
                 v-model="editable.img">
-            </div>
-            <div class="col-12">
-              <label for="description">Description</label>
-              <input type="text" name="description" id="description" class="form-control" aria-label="Description" required minlength="5" maxlength="500"
+              </div>
+              <div class="">
+                <label for="description">Description</label>
+                <input type="text" name="description" id="description" class="form-control" aria-label="Description" required minlength="5" maxlength="500"
                 v-model="editable.description">
+              </div>
+            </section>
             </div>
-          </div>
-          <div>
-            <h6>Only you can see private vaults</h6>
-            <label for="isPrivate">Make Private Vault?</label>
-         
-            <div class="col-1">
+            <div>
+              <h6 class="ms-2">Only you can see private vaults</h6>
+            <!-- <label for="isPrivate">Make Private Vault?</label>
+            <div class="">
               <input type="checkbox" id="checkbox" class="form-control" aria-label="isPrivate" :checked="true" v-model="editable.isPrivate">
-            </div>
-         
+            </div> -->
+         <div class="form-check ms-2">
+           <input class="form-check-input" type="checkbox" value="true" v-model="editable.isPrivate" id="privateCheckbox">
+           <label class="form-check-label" for="IsPrivate">
+             Make Vault Private
+           </label>
+         </div>
+         <!-- <div class="form-check">
+           <input class="form-check-input" type="checkbox" value="" id="" checked>
+           <label class="form-check-label" for="">
+             Checked checkbox
+           </label> -->
+         <!-- </div> -->
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
