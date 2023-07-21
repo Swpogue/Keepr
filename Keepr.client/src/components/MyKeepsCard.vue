@@ -1,14 +1,14 @@
 <template>
    <keep-modal></keep-modal>
-  <img @click="getActiveKeep(profileKeep.id)" class="rounded-top keepImg" :src="profileKeep?.img" :alt="profileKeep.name">
+  <img @click="getActiveKeep(profileKeep.id)" title="Keep Details" class="rounded-top keepImg" :src="profileKeep?.img" :alt="profileKeep.name">
   
   <div class="text-center p-2 rounded-bottom text-black fw-bold cardGuts">
     <router-link :to="{name: 'Profile', params: {id: profileKeep?.creatorId}}">
-      <h5 class="m-0 text-white">{{ profileKeep.name }}</h5>
+      <h5 class="m-0 text-white" title="Profile Details">{{ profileKeep.name }}</h5>
       <!-- <img :src="profileKeep.creator.picture" alt="" class="creatorImg rounded"> -->
     </router-link>
     <div class="col-1">
-      <button @click="deleteKeep(profileKeep.id)">Delete</button>
+      <button @click="deleteKeep(profileKeep.id)" aria-label="Delete Keep" title="Delete Keep">Delete</button>
     </div>
   </div>
     
