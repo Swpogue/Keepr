@@ -4,7 +4,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-secondary px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
-        <button class="btn btn-outline-light w-15">HOME</button>
+        <button class="btn btn-outline-light w-15 text-dark">HOME</button>
       </div>
     </router-link> 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
@@ -14,8 +14,8 @@
     <div  class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
         <li v-if="user.isAuthenticated">
-          <button class="btn btn-outline-light w-15" @click="openKeepFormModal()">Create Keep</button>
-          <button class="btn btn-outline-light w-15 mx-3" @click="openVaultFormModal()">Create Vault</button>
+          <button class="btn btn-outline-light w-15 text-dark" @click="openKeepFormModal()" aria-label="Create Keep">Create Keep</button>
+          <button class="btn btn-outline-light w-15 mx-3 text-dark" @click="openVaultFormModal()" aria-label="Create Vault">Create Vault</button>
         </li>
       </ul>
       <!-- LOGIN COMPONENT HERE -->

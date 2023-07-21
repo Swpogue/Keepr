@@ -27,7 +27,7 @@
   </div> -->
 </div>
 <div class="card-footer text-end">
-  <button class="btn btn-outline-primary" type="submit">Save Profile</button>
+  <button class="btn btn-outline-primary text-dark" type="submit">Save Profile</button>
 </div>
 
 

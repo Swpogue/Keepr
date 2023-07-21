@@ -1,17 +1,18 @@
 <template>
-    <section class="rounded elevation-5">
+    <section class="rounded elevation-5 body">
       <router-link :to="{name: 'Vault', params: {id: vault.id }}">
     <div class="text-center p-2 rounded-bottom text-black fw-bold">
-      <img class="rounded-top" :src="vault?.img" :alt="vault?.name">
-      <p class="">{{ vault?.name }}</p>
+      <img title="Vault Details" class="rounded-top" :src="vault?.img" :alt="vault?.name">
+      <p class="p-0 fs-4" aria-label="Vault Name">{{ vault?.name }}</p>
     </div>
   </router-link>
-    <div v-if="account?.id == vault.creatorId">
-      <button @click="deleteVault()">delete</button>
+    <div v-if="account?.id == vault.creatorId" class="p-1 row">
+      <button @click="deleteVault()" aria-label="Delete Vault" class="col-6">Delete </button>
+      <p class="col-1"><span v-if="vault.isPrivate == true"><i class="mdi mdi-lock ps-2" aria-label="Private"></i></span></p>
     </div>
-    <div v-if="vault.isPrivate == true">
+    <!-- <div v-if="vault.isPrivate == true">
       <i class="mdi mdi-lock ps-2" aria-label="Private"></i>
-    </div>
+    </div> -->
 
 
   </section>
@@ -51,9 +52,9 @@ export default {
 
 <style lang="scss" scoped>
 img {
-  height: 350px;
+  // height: 350px;
   width: 100%;
   // aspect-ratio: 1/1;
   object-fit: fit;
 }
-</style>
+</style> 

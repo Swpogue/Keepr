@@ -15,12 +15,12 @@
             </div>
             <div class="col-12">
               <label for="imgUrl" class="mt-2">Image URL</label>
-              <input type="url" id="imgUrl" name="imgUrl" class="form-control" required minlength="5" maxlength="500" aria-label="Image U R L"
+              <input type="url" id="KeepImgUrl" name="imgUrl" class="form-control" required minlength="5" maxlength="500" aria-label="Image U R L"
                 v-model="editable.img">
             </div>
             <div class="col-12">
               <label for="description">Description</label>
-              <input type="text" name="description" id="description" class="form-control" aria-label="Description" required minlength="5" maxlength="500"
+              <input type="text" name="description" id="KeepDescription" class="form-control" aria-label="Description" required minlength="5" maxlength="500"
                 v-model="editable.description">
             </div>
           </div>
