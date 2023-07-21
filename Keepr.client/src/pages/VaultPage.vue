@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { computed, onMounted } from "vue";
 import { logger } from "../utils/Logger.js";
 import Pop from "../utils/Pop.js";
@@ -28,6 +28,7 @@ import { vaultsService } from "../services/VaultsService.js";
 import { AppState } from "../AppState.js";
 export default {
   setup() {
+    const router = useRouter()
     const route = useRoute();
     onMounted(() => {
       getVaultById();
@@ -41,6 +42,7 @@ export default {
       }
       catch (error) {
         Pop.error(error);
+        router.push({name: 'Home'})
       }
     }
     async function getVaultKeepsById() {

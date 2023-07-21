@@ -17,6 +17,7 @@ import { Keep } from "../models/Keep.js"
 import { keepsService } from "../services/KeepsService.js";
 import Pop from "../utils/Pop.js";
 import VaultKeepModal from "./VaultKeepModal.vue";
+import { AppState } from "../AppState.js";
 export default {
   components: { VaultKeepModal },
   props: {
@@ -31,7 +32,6 @@ export default {
           if (await Pop.confirm("You sure?")) {
             const keepId = props.keep.id;
             await keepsService.deleteKeep(keepId);
-            // logger.log(recipeId)
           }
         } catch (error) {
           Pop.error(error)
@@ -41,6 +41,7 @@ export default {
 
       async getActiveVaultKeep(keepId) {
         try {
+          AppState.activeVaultKeep.vaultKeepId = props.keep.vaultKeepId
           await keepsService.getKeepById(keepId)
           Modal.getOrCreateInstance('#activeVaultKeepModal').show()
         } catch (error) {

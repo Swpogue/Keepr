@@ -4,13 +4,13 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="btn-close col-1" data-bs-dismiss="modal" aria-label="Close" @click="clearActive()"></button>
+          <button type="button" class="btn-close col-1" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <section class="container-fluid">
+        <section class="container-fluid text-dark">
           <div class=" p-1 row">
             <div class="col-6">
               <img class="rounded-top" :src="keep?.img" alt="">
-              <p>VIEWED: {{ keep?.views }}</p>
+              <p>VIEWED: {{ keep?.views }} Kept: {{ keep?.kept }}</p>
             </div>
             <div class="text-center col-6">
               <h4 class="modal-title col-10"> {{ keep?.name }}</h4>
@@ -19,10 +19,6 @@
           </div>
         </section>
         <div class="form-group">
-          <select name="keep" class="form-control" v-model="editable.keepId">
-            <option disabled selected value="">Select Keep</option>
-            <option v-for="k in keep" :key="k.id" :value="k.id">{{ k.name}}</option>
-          </select>
           <select name="vault" class="form-control" v-model="editable.vaultId">
             <option disabled selected value="">Please Select a Vault</option>
             <option v-for="v in vaults" :key="v.id" :value="v.id">{{ v.name }}</option>
@@ -45,16 +41,18 @@ import Pop from "../utils/Pop.js"
 import { logger } from "../utils/Logger.js"
 export default {
   setup() {
-
-    const editable = ref({ vaultId: '', keepId: '' })
+    const editable = ref({ vaultId: ''})
+    
     return {
-    editable,
-
-    async handleSubmit() {
-      try {
-        logger.log("[DID YOU SAVE VAULT KEEP?]", editable.value )
-        await vaultKeepsService.saveKeepToVault(editable.value)
-        editable.value = { vaultId: '', keepId: '' }
+      editable,
+      
+      async handleSubmit() {
+        try {
+        const keepId = AppState.activeKeep.id
+        const vaultId = editable.value.vaultId
+        logger.log("[DID YOU SAVE VAULT KEEP?]", vaultId, keepId )
+        await vaultKeepsService.saveKeepToVault(vaultId, keepId)
+        editable.value = { vaultId: '' }
       } catch (error) {
         Pop.error(error, '[DID NOT SAVE KEEP]')
       }

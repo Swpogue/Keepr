@@ -1,5 +1,6 @@
 <template>
-  <img class="rounded-top keepImg" :src="profileKeep?.img" :alt="profileKeep.name">
+   <keep-modal></keep-modal>
+  <img @click="getActiveKeep(profileKeep.id)" class="rounded-top keepImg" :src="profileKeep?.img" :alt="profileKeep.name">
   
   <div class="text-center p-2 rounded-bottom text-black fw-bold cardGuts">
     <router-link :to="{name: 'Profile', params: {id: profileKeep?.creatorId}}">
@@ -12,6 +13,7 @@
 
 
 <script>
+import { Modal } from "bootstrap";
 import { Keep } from "../models/Keep.js"
 import { keepsService } from "../services/KeepsService.js";
 import Pop from "../utils/Pop.js";
@@ -34,6 +36,16 @@ export default {
           Pop.error(error.message)
         }
       },
+
+       async getActiveKeep(keepId) {
+        try {
+          await keepsService.getKeepById(keepId)
+          Modal.getOrCreateInstance('#activeKeepModal').show()
+        } catch (error) {
+          Pop.error(error)
+        }
+      }
+
     }
   }
 }
