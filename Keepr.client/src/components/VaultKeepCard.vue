@@ -1,12 +1,12 @@
 <template>
   <vault-keep-modal></vault-keep-modal>
-  <div class="">
-    <img @click="getActiveVaultKeep(keep.id)" class="rounded-top keepImg" :src="keep?.img" :alt="keep.name">
-    <div class="text-center  p-2 rounded-bottom text-black fw-bold cardGuts">
-      <router-link :to="{ name: 'Profile', params: { id: keep?.creatorId } }">
-        <h3 class="m-0">{{ keep.name }}</h3>
-      </router-link>
-    </div>
+  <img @click="getActiveVaultKeep(keep.id)" class="rounded-top keepImg" :src="keep?.img" :alt="keep.name" title="Keep Details">
+  <div class="text-center  p-2 rounded-bottom text-black fw-bold cardGuts">
+    <router-link :to="{ name: 'Profile', params: { id: keep?.creatorId } }">
+      <aside class="" title="Profile Details">
+        <h5 class="m-0 text-white"> {{ keep.name }} <span class="ps-1"><img :src="keep.creator.picture" alt="" class="creatorImg rounded-pill"></span></h5>
+      </aside>
+    </router-link>
   </div>
 </template> 
 
@@ -60,27 +60,28 @@ export default {
 .keepImg {
   // height: 350px;
   width: 100%;
+  object-fit: cover;
   // aspect-ratio: 1/1;
-  // object-fit: fit;
   cursor: pointer;
 }
 
 .creatorImg {
   height: 30px;
-  // aspect-ratio: 1/1;
+  aspect-ratio: 1/1;
   object-fit: cover;
   cursor: pointer;
+  position: relative;
 }
+
 .cardGuts {
-    position: absolute;
-    // justify-content: space-between;
-    // display: flex;
-    align-items: center;
-    bottom: 70px;
-    // top: 50px;
-    left: 0px;
-    right: 1550px;
-  }
+  position: absolute;
+  // justify-content: end;
+  align-items: center;
+  bottom: 0px;
+  // top: 0px;
+  left: 0px;
+  right: 0px;
+}
 
 .icon {
   cursor: pointer;

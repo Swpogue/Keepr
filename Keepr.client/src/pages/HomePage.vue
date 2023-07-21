@@ -2,7 +2,7 @@
   <section class="container-fluid body">
     <div class="overflow-hidden mt-2">
       <div class="masonry-with-flex">
-        <div class="keepCards" v-for="k in keep" :key="k.id">
+        <div class="keepCards elevation-5" v-for="k in keep" :key="k.id">
           <KeepCard :keep="k" />
         </div>
       </div>
@@ -29,7 +29,7 @@ export default {
 .body {
   margin: 0;
   padding: 1rem;
-  width: 100%;
+  // width: 100%;
 }
 
 .masonry-with-flex {
@@ -37,11 +37,11 @@ export default {
   flex-direction: column;
   flex-wrap: wrap;
   // min-height: 400px;
-  max-height: 1000px;
-  width: 100%;
+  max-height: 1300px;
+  // width: 50vw;
 
   .keepCards {
-    width: 250px;
+    width: 200px;
     background: #EC985A;
     color: white;
     margin: 0 1rem 1rem 0;
@@ -50,15 +50,10 @@ export default {
     font-weight: 900;
     font-size: 1rem;
     position: relative;
+    overflow: hidden;
   }
 
-  // @for $i from 1 through 36 {
-  //   div:nth-child(#{$i}) {
-  //     $h: (random(400) + 100)+px;
-  //     height: $h;
-  //     line-height: $h;
-  //   }
-  // }
+ 
 }
 
 </style>

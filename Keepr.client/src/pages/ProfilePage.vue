@@ -7,6 +7,7 @@
             </div>
             <div class="col-5 p-3 text-center">
                 <img class="img-fluid rounded" :src="profile?.picture" alt="">
+                <h4>Keeps: {{ keep.length }} Vaults: {{ vault.length }}</h4>
             </div>
         </div>
     <!-- </section> -->

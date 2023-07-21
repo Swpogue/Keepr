@@ -2,16 +2,16 @@
   <section class="container-fluid">
     <div class="row vaultImg">
       <div class="col-12 p-3 text-center">
-        <img class="rounded" :src="vault?.img" alt="">
-        <p class="pt-2">Keeps</p>
+        <img class="rounded boxShadow" :src="vault?.img" alt="">
+        <h4 class="pt-2">Keeps: {{ keep.length }}</h4>
       </div>
     </div>
-  </section>
+  <!-- </section> -->
 
-  <section class="container-fluid mt-5">
-    <div class="row  mt-2">
+  <!-- <section class="container-fluid mt-5"> -->
+    <div class=" mt-2">
       <div class="masonry-with-flex ">
-        <div class="keepsCards elevation-5 col-2" v-for="k in keep" :key="k.id">
+        <div class="keepCards elevation-5" v-for="k in keep" :key="k.id">
           <VaultKeepCard :keep="k" />
         </div>
       </div>
@@ -66,9 +66,13 @@ export default {
 
 <style scoped lang="scss">
 .vaultImg {
-  justify-content: space-between;
-  height: fit-content;
+  // justify-content: space-between;
+  // height: fit-content;
   align-items: center;
+  
+}
+.boxShadow {
+  box-shadow: 10px 5px 5px rgb(97, 96, 96);
 }
 
 .masonry-with-flex {
@@ -76,18 +80,20 @@ export default {
   flex-direction: column;
   flex-wrap: wrap;
   // min-height: 400px;
-  max-height: 800px;
+  max-height: 1300px;
+  // width: 50vw;
 
   .keepCards {
-    width: 150px;
+    width: 200px;
     background: #EC985A;
     color: white;
-    margin: 0 1em 1em 0;
+    margin: 0 1rem 1rem 0;
     text-align: center;
-    // font-family: system-ui;
-    // font-weight: 900;
+    font-family: system-ui;
+    font-weight: 900;
     font-size: 1rem;
     position: relative;
+    overflow: hidden;
   }
 
   //       @for $i from 1 through 40 {
