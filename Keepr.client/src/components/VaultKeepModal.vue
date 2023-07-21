@@ -21,7 +21,7 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close" @click="clearActive()">Close</button>
-          <div v-if="keep?.creatorId == vault?.creatorId">
+          <div v-if="account?.id == vault?.creatorId">
             <button type="button" class="btn btn-danger" aria-label="Delete" @click="deleteVaultKeep()">Delete</button>
           </div>
         </div>

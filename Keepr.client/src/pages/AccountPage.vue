@@ -71,7 +71,7 @@ img {
 
 .masonry-with-flex {
   // display: flex;
-  // flex-direction: column;
+  // flex-direction: row;
   // flex-wrap: wrap;
   // min-height: 400px;
   // max-height: 1300px;

@@ -6,14 +6,15 @@
       <p class="p-0 fs-4" aria-label="Vault Name">{{ vault?.name }}</p>
     </div>
   </router-link>
-    <div v-if="account?.id == vault.creatorId" class="p-1">
+  
+  <div class="row">
+    <div v-if="account?.id == vault.creatorId" class="col-10">
       <button @click="deleteVault()" aria-label="Delete Vault">Delete</button>
     </div>
-    <div v-if="vault.isPrivate == true">
+    <div v-if="vault.isPrivate == true" class="col-1">
       <i class="mdi mdi-lock ps-2" aria-label="Private" title="Private Vault"></i>
     </div>
-
-
+  </div>
   </section>
 </template>
 
@@ -51,9 +52,15 @@ export default {
 
 <style lang="scss" scoped>
 img {
-  // height: 350px;
+  height: 250px;
   width: 100%;
-  // aspect-ratio: 1/1;
+  aspect-ratio: 1/1;
   object-fit: fit;
+  
+}
+.body{
+  height: 410px ;
+  // columns: 6 200px;
+  // column-gap: 1rem;
 }
 </style> 

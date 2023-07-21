@@ -16,10 +16,10 @@
       v-model="editable.coverImg">
     <label for="cover-img">Cover Image:</label>
   </div>
-  <div class="form-floating mb-3">
+  <!-- <div class="form-floating mb-3">
     <input name="email" class="form-control" placeholder="email" type="text" v-model="editable.email">
     <label for="email">Email:</label>
-  </div>
+  </div> -->
 
   <!-- <div class="input-text">
     <input v-model="editable.graduated" type="checkbox">
