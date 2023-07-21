@@ -10,7 +10,7 @@
       <button @click="deleteVault()">delete</button>
     </div>
     <div v-if="vault.isPrivate == true">
-      <i class="mdi mdi-lock ps-2"></i>
+      <i class="mdi mdi-lock ps-2" aria-label="Private"></i>
     </div>
 
 

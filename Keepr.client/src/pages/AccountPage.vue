@@ -9,7 +9,7 @@
       <img class="rounded m-2" :src="account.coverImg" alt="" />
     </div>
     <div class="row">
-      <div class="col-2" v-for="v in vault" :key="v.id">
+      <div class="col-2 pt-2" v-for="v in vault" :key="v.id">
         <VaultCard :vault="v" />
       </div>
     </div>

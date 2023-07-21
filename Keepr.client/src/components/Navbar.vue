@@ -11,9 +11,9 @@
       aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarText">
+    <div  class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
-        <li>
+        <li v-if="user.isAuthenticated">
           <button class="btn btn-outline-light w-15" @click="openKeepFormModal()">Create Keep</button>
           <button class="btn btn-outline-light w-15 mx-3" @click="openVaultFormModal()">Create Vault</button>
         </li>
@@ -36,6 +36,7 @@ export default {
   setup() {
     return {
       keep: computed(() => AppState.keeps),
+      user: computed(() => AppState.user),
 
       openKeepFormModal() {
         Modal.getOrCreateInstance('#createKeepModal').show()

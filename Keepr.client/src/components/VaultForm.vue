@@ -24,6 +24,13 @@
                 v-model="editable.description">
             </div>
           </div>
+          <div>
+            <h6>Only you can see private vaults</h6>
+            <label for="isPrivate">Make Private Vault?</label>
+            <div class="col-1">
+              <input type="checkbox" id="checkbox" class="form-control" aria-label="isPrivate" :checked="true" v-model="editable.isPrivate">
+            </div>
+          </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
             <button type="submit" class="btn btn-danger" aria-label="Submit">Submit</button>
