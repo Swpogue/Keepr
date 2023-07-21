@@ -6,13 +6,12 @@
       <p class="p-0 fs-4" aria-label="Vault Name">{{ vault?.name }}</p>
     </div>
   </router-link>
-    <div v-if="account?.id == vault.creatorId" class="p-1 row">
-      <button @click="deleteVault()" aria-label="Delete Vault" class="col-6">Delete </button>
-      <p class="col-1"><span v-if="vault.isPrivate == true"><i class="mdi mdi-lock ps-2" aria-label="Private"></i></span></p>
+    <div v-if="account?.id == vault.creatorId" class="p-1">
+      <button @click="deleteVault()" aria-label="Delete Vault">Delete</button>
     </div>
-    <!-- <div v-if="vault.isPrivate == true">
-      <i class="mdi mdi-lock ps-2" aria-label="Private"></i>
-    </div> -->
+    <div v-if="vault.isPrivate == true">
+      <i class="mdi mdi-lock ps-2" aria-label="Private" title="Private Vault"></i>
+    </div>
 
 
   </section>
