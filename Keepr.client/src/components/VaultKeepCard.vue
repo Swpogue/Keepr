@@ -1,10 +1,10 @@
 <template>
   <vault-keep-modal></vault-keep-modal>
-  <img @click="getActiveVaultKeep(keep.id)" class="rounded-top keepImg" :src="keep?.img" :alt="keep.name" title="Keep Details">
+  <img @click="getActiveVaultKeep(keep.id)" class="rounded-top keepImg" :src="keep?.img" :alt="keep?.name" title="Keep Details">
   <div class="text-center  p-2 rounded-bottom text-black fw-bold cardGuts">
     <router-link :to="{ name: 'Profile', params: { id: keep?.creatorId } }">
       <aside class="" title="Profile Details">
-        <h5 class="m-0 text-white"> {{ keep.name }} <span class="ps-1"><img :src="keep.creator.picture" alt="" class="creatorImg rounded-pill"></span></h5>
+        <h5 class="m-0 text-white"> {{ keep?.name }} <span class="ps-1"><img :src="keep.creator?.picture" alt="" class="creatorImg rounded-pill"></span></h5>
       </aside>
     </router-link>
   </div>

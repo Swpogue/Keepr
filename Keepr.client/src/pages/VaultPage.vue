@@ -76,12 +76,14 @@ export default {
 }
 
 .masonry-with-flex {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-direction: column;
+  // flex-wrap: wrap;
   // min-height: 400px;
-  max-height: 1300px;
+  // max-height: 1300px;
   // width: 50vw;
+  columns: 6 200px;
+  column-gap: 1rem;
 
   .keepCards {
     width: 200px;

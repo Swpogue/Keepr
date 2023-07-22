@@ -37,6 +37,7 @@ import { AppState } from "../AppState.js"
 import Pop from "../utils/Pop.js"
 import { vaultKeepsService } from "../services/VaultKeepsService.js"
 import { logger } from "../utils/Logger.js"
+import { Modal } from "bootstrap"
 export default {
   setup() {
     return {
@@ -49,6 +50,7 @@ export default {
       async deleteVaultKeep() {
         try {
           if (await Pop.confirm("You sure?")) {
+            Modal.getOrCreateInstance('#activeVaultKeepModal').hide() 
 
             const vaultKeepId = AppState.activeVaultKeep.vaultKeepId;
             await vaultKeepsService.deleteVaultKeep(vaultKeepId);
