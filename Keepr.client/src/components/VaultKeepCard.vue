@@ -10,7 +10,6 @@
   </div>
 </template> 
 
-
 <script>
 import { Modal } from "bootstrap";
 import { Keep } from "../models/Keep.js"
@@ -38,7 +37,6 @@ export default {
         }
       },
 
-
       async getActiveVaultKeep(keepId) {
         try {
           AppState.activeVaultKeep.vaultKeepId = props.keep.vaultKeepId
@@ -48,8 +46,6 @@ export default {
           Pop.error(error)
         }
       }
-
-
     }
   }
 }
@@ -82,7 +78,6 @@ export default {
   left: 0px;
   right: 0px;
 }
-
 .icon {
   cursor: pointer;
 }
