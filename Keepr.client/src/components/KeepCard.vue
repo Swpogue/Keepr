@@ -35,7 +35,7 @@ export default {
           if (await Pop.confirm("You sure?")) {
             const keepId = props.keep.id;
             await keepsService.deleteKeep(keepId);
-            // logger.log(recipeId)
+            // logger.log(keepId)
           }
         } catch (error) {
           Pop.error(error)
@@ -86,13 +86,6 @@ export default {
   right: 0px;
 }
 
-// @for $i from 1 through 36 {
-//   div:nth-child(#{$i}) {
-//     $h: (random(500) + 100)+px;
-//     height: $h;
-//     line-height: $h;
-//   }
-// }
 
 .icon {
   cursor: pointer;

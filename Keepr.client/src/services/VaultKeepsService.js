@@ -11,10 +11,10 @@ class VaultKeepsService{
   {
     logger.log(formData, keepId)
     const vaultKeepData = { 'vaultId': formData, 'keepId': keepId}
-    logger.log("VAULTKEEPDATA",vaultKeepData)
+    // logger.log("VAULT KEEP DATA",vaultKeepData)
     const res = await api.post(`api/vaultKeeps`, vaultKeepData)
     AppState.vaultKeeps.unshift(new VaultKeep(res.data))
-    logger.log('VAULT KEEP SAVED!!!!')
+    logger.log('VAULT KEEP SAVED!!!!', res.data)
   }
 
   async deleteVaultKeep(vaultKeepId)

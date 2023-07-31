@@ -16,15 +16,6 @@
       v-model="editable.coverImg">
     <label for="cover-img">Cover Image:</label>
   </div>
-  <!-- <div class="form-floating mb-3">
-    <input name="email" class="form-control" placeholder="email" type="text" v-model="editable.email">
-    <label for="email">Email:</label>
-  </div> -->
-
-  <!-- <div class="input-text">
-    <input v-model="editable.graduated" type="checkbox">
-      <label class="px-3" for="graduated">Graduated?</label>
-  </div> -->
 </div>
 <div class="card-footer text-end">
   <button class="btn btn-outline-primary text-dark" type="submit">Save Profile</button>

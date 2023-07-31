@@ -27,29 +27,13 @@
 <script>
 import { computed, onMounted } from 'vue';
 import { AppState } from '../AppState';
-import Pop from "../utils/Pop.js";
 import { logger } from "../utils/Logger.js";
-import { profilesService } from "../services/ProfilesService.js";
 export default {
 
 
 
   setup() {
-    // onMounted(() => {
-      
-    //   getKeepsByAccountId();
-    // })
-
-    // async function getKeepsByAccountId() {
-    //   try {
-    //     const id = AppState.account.id
-    //     await profilesService.getKeepsByAccountId(id);
-    //     logger.log("ACCOUNT KEEPS BY ID?");
-    //   }
-    //   catch (error) {
-    //     Pop.error(error);
-    //   }
-    // }
+   
     return {
       account: computed(() => AppState.account),
       vault: computed(() => AppState.myVaults),
