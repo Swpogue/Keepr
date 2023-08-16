@@ -38,7 +38,6 @@ export default {
           if (await Pop.confirm("You sure?")){
             const vaultId = props.vault.id;
             await vaultsService.deleteVault(vaultId);
-            // logger.log(recipeId)
           }
         } catch (error) {
           Pop.error(error)
@@ -60,7 +59,5 @@ img {
 }
 .body{
   height: 410px ;
-  // columns: 6 200px;
-  // column-gap: 1rem;
 }
 </style> 

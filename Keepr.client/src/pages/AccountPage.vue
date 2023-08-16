@@ -25,9 +25,8 @@
 </template>
 
 <script>
-import { computed, onMounted } from 'vue';
+import { computed } from 'vue';
 import { AppState } from '../AppState';
-import { logger } from "../utils/Logger.js";
 export default {
 
 
@@ -54,12 +53,6 @@ img {
 }
 
 .masonry-with-flex {
-  // display: flex;
-  // flex-direction: row;
-  // flex-wrap: wrap;
-  // min-height: 400px;
-  // max-height: 1300px;
-  // width: 50vw;
   columns: 6 200px;
   column-gap: 1rem;
 

@@ -54,10 +54,8 @@ export default {
 
 <style lang="scss" scoped>
 .keepImg {
-  // height: 350px;
   width: 100%;
   object-fit: cover;
-  // aspect-ratio: 1/1;
   cursor: pointer;
 }
 
@@ -71,10 +69,8 @@ export default {
 
 .cardGuts {
   position: absolute;
-  // justify-content: end;
   align-items: center;
   bottom: 0px;
-  // top: 0px;
   left: 0px;
   right: 0px;
 }

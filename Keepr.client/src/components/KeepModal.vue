@@ -75,10 +75,5 @@ img{
   width: 100%;
   object-fit: cover;
 }
-// .modal-content{
-// display: flex;
-// flex-direction: row;
-
-// }
 
 </style>

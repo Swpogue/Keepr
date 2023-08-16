@@ -6,9 +6,7 @@
         <h4 class="pt-2">Keeps: {{ keep.length }}</h4>
       </div>
     </div>
-  <!-- </section> -->
-
-  <!-- <section class="container-fluid mt-5"> -->
+ 
     <div class=" mt-2">
       <div class="masonry-with-flex ">
         <div class="keepCards elevation-5" v-for="k in keep" :key="k.id">
@@ -66,8 +64,6 @@ export default {
 
 <style scoped lang="scss">
 .vaultImg {
-  // justify-content: space-between;
-  // height: fit-content;
   align-items: center;
   
 }
@@ -76,12 +72,6 @@ export default {
 }
 
 .masonry-with-flex {
-  // display: flex;
-  // flex-direction: column;
-  // flex-wrap: wrap;
-  // min-height: 400px;
-  // max-height: 1300px;
-  // width: 50vw;
   columns: 6 200px;
   column-gap: 1rem;
 
@@ -98,12 +88,5 @@ export default {
     overflow: hidden;
   }
 
-  //       @for $i from 1 through 40 {
-  //     div:nth-child(#{$i}) {
-  //       $h: (random(400) + 100)+px;
-  //       height: $h;
-  //       line-height: $h;
-  //     }
-  //   }
 }
 </style>

@@ -10,17 +10,13 @@
                 <h4>Keeps: {{ keep.length }} Vaults: {{ vault.length }}</h4>
             </div>
         </div>
-    <!-- </section> -->
 
-    <!-- <section class="container-fluid profile-page mt-2"> -->
         <div class="row vaultRow">
             <div class=" col-2 mt-3" v-for="v in vault" :key="v.id">
                 <VaultCard :vault="v" />
             </div>
         </div>
-    <!-- </section> -->
 
-    <!-- <section class="container-fluid mt-5"> -->
         <div class="mt-5">
             <div class="masonry-with-flex">
                 <div class="keepCards elevation-5" v-for="k in keep" :key="k.id">
@@ -74,7 +70,6 @@ export default {
             }
         }
         return {
-            // vault: computed(() => AppState.vaults),
             profile: computed(() => AppState.activeProfile),
             vault: computed(() => AppState.profileVaults),
             keep: computed(() => AppState.profileKeeps),
@@ -104,11 +99,6 @@ export default {
 }
 
 .masonry-with-flex {
-    // display: flex;
-    // flex-direction: column;
-    // flex-wrap: wrap;
-    // min-height: 400px;
-    // max-height: 1300px;
     columns: 6 200px;
   column-gap: 1rem;
 
@@ -124,12 +114,5 @@ export default {
         position: relative;
         overflow: hidden;
     }
-//       @for $i from 1 through 40 {
-//     div:nth-child(#{$i}) {
-//       $h: (random(400) + 100)+px;
-//       height: $h;
-//       line-height: $h;
-//     }
-//   }
 }
 </style>

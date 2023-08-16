@@ -28,22 +28,14 @@
             </div>
             <div>
               <h6 class="ms-2">Only you can see private vaults</h6>
-            <!-- <label for="isPrivate">Make Private Vault?</label>
-            <div class="">
-              <input type="checkbox" id="checkbox" class="form-control" aria-label="isPrivate" :checked="true" v-model="editable.isPrivate">
-            </div> -->
+  
          <div class="form-check ms-2">
            <input class="form-check-input" type="checkbox" value="true" v-model="editable.isPrivate" id="privateCheckbox">
            <label class="form-check-label" for="IsPrivate">
              Make Vault Private
            </label>
          </div>
-         <!-- <div class="form-check">
-           <input class="form-check-input" type="checkbox" value="" id="" checked>
-           <label class="form-check-label" for="">
-             Checked checkbox
-           </label> -->
-         <!-- </div> -->
+  
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>

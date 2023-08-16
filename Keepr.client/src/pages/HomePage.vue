@@ -29,19 +29,13 @@ export default {
 .body {
   margin: 0;
   padding: 1rem;
-  // width: 100%;
 }
 
 .masonry-with-flex {
-  // display: flex;
   columns: 6 200px;
   column-gap: 1rem;
 
-  // flex-direction: column;
-  // flex-wrap: wrap;
-  // min-height: 400px;
-  // max-height: 1300px;
-  // width: 50vw;
+ 
 
   .keepCards {
     width: 200px;
