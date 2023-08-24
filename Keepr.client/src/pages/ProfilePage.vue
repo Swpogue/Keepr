@@ -10,13 +10,11 @@
                 <h4>Keeps: {{ keep.length }} Vaults: {{ vault.length }}</h4>
             </div>
         </div>
-
         <div class="row vaultRow">
             <div class=" col-2 mt-3" v-for="v in vault" :key="v.id">
                 <VaultCard :vault="v" />
             </div>
         </div>
-
         <div class="mt-5">
             <div class="masonry-with-flex">
                 <div class="keepCards elevation-5" v-for="k in keep" :key="k.id">

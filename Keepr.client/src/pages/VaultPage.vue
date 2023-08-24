@@ -6,7 +6,6 @@
         <h4 class="pt-2">Keeps: {{ keep.length }}</h4>
       </div>
     </div>
- 
     <div class=" mt-2">
       <div class="masonry-with-flex ">
         <div class="keepCards elevation-5" v-for="k in keep" :key="k.id">
@@ -52,7 +51,6 @@ export default {
         Pop.error(error);
       }
     }
-
 
     return {
       keep: computed(() => AppState.vaultKeeps),
