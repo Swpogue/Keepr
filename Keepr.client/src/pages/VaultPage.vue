@@ -68,7 +68,6 @@ export default {
 .boxShadow {
   box-shadow: 10px 5px 5px rgb(97, 96, 96);
 }
-
 .masonry-with-flex {
   columns: 6 200px;
   column-gap: 1rem;
