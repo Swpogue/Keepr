@@ -11,7 +11,6 @@
   
 </template>
   
-  
 <script>
 import { Modal } from "bootstrap";
 import { Keep } from "../models/Keep.js"
@@ -39,7 +38,6 @@ export default {
         }
       },
 
-
       async getActiveKeep(keepId) {
         try {
           await keepsService.getKeepById(keepId)
@@ -48,21 +46,16 @@ export default {
           Pop.error(error)
         }
       }
-
-
     }
   }
 }
 </script>
-  
-  
 <style lang="scss" scoped>
 .keepImg {
   width: 100%;
   object-fit: cover;
   cursor: pointer;
 }
-
 .creatorImg {
   height: 30px;
   aspect-ratio: 1/1;
@@ -70,7 +63,6 @@ export default {
   cursor: pointer;
   position: relative;
 }
-
 .cardGuts {
   position: absolute;
   align-items: center;
@@ -78,8 +70,6 @@ export default {
   left: 0px;
   right: 0px;
 }
-
-
 .icon {
   cursor: pointer;
 }
