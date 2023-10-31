@@ -82,7 +82,6 @@ export default {
     flex-direction: row;
     flex-wrap: wrap;
 }
-
 .body {
   margin: 0;
   padding: 1rem;
@@ -95,11 +94,9 @@ export default {
     height: fit-content;
     align-items: center;
 }
-
 .masonry-with-flex {
     columns: 6 200px;
   column-gap: 1rem;
-
     .keepCards {
         width: 200px;
         background: #EC985A;

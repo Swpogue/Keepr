@@ -35,8 +35,6 @@ export default {
   columns: 6 200px;
   column-gap: 1rem;
 
- 
-
   .keepCards {
     width: 200px;
     background: #EC985A;
@@ -49,8 +47,5 @@ export default {
     position: relative;
     overflow: hidden;
   }
-
- 
 }
-
 </style>
